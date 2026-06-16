@@ -168,7 +168,7 @@ export default function Couple() {
             >
               <Image
                 src="/couple.jpeg"
-                alt="Rici & Ines"
+                alt="Bojan & Evi"
                 width={1600}
                 height={1000}
                 priority
@@ -298,8 +298,7 @@ export default function Couple() {
                     drop-shadow-lg
                   `}
                 >
-                  Evi Juni Hokiana
-                  <br/> Pasaribu
+                  Evi Juni 
                   
                 </h2>
               </div>

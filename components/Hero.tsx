@@ -149,9 +149,10 @@ export default function Hero({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="mt-6 text-sm text-sky-500"
+          className="mt-6 text-sm text-sky-800"
         >
-          Dear {guestName}, Welcome
+             Dear<br/>
+           {guestName}
         </motion.p>
 
         {/* BUTTON */}

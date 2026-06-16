@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, Clock3, MapPin } from "lucide-react";
+import { CalendarDays, Clock3, House, MapPin } from "lucide-react";
 
 export default function Event() {
   return (
@@ -52,6 +52,7 @@ export default function Event() {
             date="Sunday, June 21, 2026"
             time="14.00 - 21.00"
             location="Ocean Resto & Function"
+            Address="Komp. Ruko King Business Centre Blok A2 No. 15-20, Belian, Batam Kota, Batam City"
           />
 
         </div>
@@ -66,11 +67,13 @@ function EventCard({
   date,
   time,
   location,
+  Address,
 }: {
   title: string;
   date: string;
   time: string;
   location: string;
+  Address: string;
 }) {
   return (
     <motion.div
@@ -123,11 +126,15 @@ function EventCard({
           <MapPin size={18} className="text-sky-500 mt-1" />
           <span className="text-sm leading-relaxed">{location}</span>
         </div>
+        <div className="flex items-start gap-4">
+          <House size={24} className="text-sky-500 mt-1" />
+          <span className="text-sm leading-relaxed">{Address}</span>
+        </div>
       </div>
 
       {/* BUTTON */}
       <a
-        href="https://maps.app.goo.gl/fcZjZVxugaDxq99N8"
+        href="https://maps.app.goo.gl/PZzfSMxZN3B1u1s67"
         target="_blank"
         className="
           mt-10
