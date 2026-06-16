@@ -145,15 +145,25 @@ export default function Hero({
           </div>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="mt-6 text-sm text-sky-800"
-        >
-             Dear<br/>
-           {guestName}
-        </motion.p>
+        <motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.5, duration: 0.6 }}
+  className="mt-6 text-center"
+>
+  <p className="text-sm tracking-[0.3em] text-sky-700 uppercase">
+    Dear
+  </p>
+
+  <div className="mt-2 relative inline-block">
+    <p className="text-2xl md:text-3xl font-serif text-[#0B4D78]">
+      {guestName}
+    </p>
+
+    {/* decorative line */}
+    <div className="mt-2 h-[1px] w-full bg-gradient-to-r from-transparent via-sky-300 to-transparent" />
+  </div>
+</motion.div>
 
         {/* BUTTON */}
         <motion.button

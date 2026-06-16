@@ -7,12 +7,12 @@ export default function Event() {
   return (
     <section className="relative overflow-hidden py-28 bg-white">
 
-      {/* 🌸 soft glow background */}
+      {/* 🌸 background layer */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.12),transparent_60%)]" />
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-sky-100 blur-[140px] rounded-full" />
       <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] bg-blue-100 blur-[140px] rounded-full" />
 
-      {/* 🌿 floral decoration */}
+      {/* 🌿 decoration */}
       <img
         src="/bgn1.png"
         className="absolute top-0 left-0 w-[380px] opacity-10 pointer-events-none"
@@ -44,17 +44,15 @@ export default function Event() {
           <div className="w-20 h-[2px] bg-gradient-to-r from-sky-200 to-sky-400 mx-auto mt-6 rounded-full" />
         </motion.div>
 
-        {/* CARD GRID */}
+        {/* CARD */}
         <div className="mt-20 flex justify-center">
-
           <EventCard
             title="Wedding Reception"
             date="Sunday, June 21, 2026"
             time="14.00 - 21.00"
             location="Ocean Resto & Function"
-            Address="Komp. Ruko King Business Centre Blok A2 No. 15-20, Belian, Batam Kota, Batam City"
+            address="Komp. Ruko King Business Centre Blok A2 No. 15-20, Belian, Batam Kota, Batam City"
           />
-
         </div>
       </div>
     </section>
@@ -67,13 +65,13 @@ function EventCard({
   date,
   time,
   location,
-  Address,
+  address,
 }: {
   title: string;
   date: string;
   time: string;
   location: string;
-  Address: string;
+  address: string;
 }) {
   return (
     <motion.div
@@ -91,26 +89,27 @@ function EventCard({
         border border-sky-100
         shadow-[0_30px_90px_rgba(14,116,144,0.12)]
         p-10
+        overflow-hidden
       "
     >
 
-      {/* soft glow border */}
-      <div className="absolute inset-0 rounded-[32px] ring-1 ring-sky-100/60" />
+      {/* ring overlay (FIX: jangan blok klik) */}
+      <div className="absolute inset-0 rounded-[32px] ring-1 ring-sky-100/60 pointer-events-none" />
 
-      {/* floating icon */}
-      <div className="flex justify-center">
+      {/* icon */}
+      <div className="flex justify-center relative z-10">
         <div className="w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center shadow-md">
           <CalendarDays className="text-sky-600" size={26} />
         </div>
       </div>
 
-      {/* TITLE */}
-      <h3 className="text-center text-3xl font-serif text-[#0B4D78] mt-6">
+      {/* title */}
+      <h3 className="text-center text-3xl font-serif text-[#0B4D78] mt-6 relative z-10">
         {title}
       </h3>
 
-      {/* DETAILS */}
-      <div className="mt-8 space-y-5 text-slate-700">
+      {/* details */}
+      <div className="mt-8 space-y-5 text-slate-700 relative z-10">
 
         <div className="flex items-center gap-4">
           <CalendarDays size={18} className="text-sky-500" />
@@ -126,17 +125,20 @@ function EventCard({
           <MapPin size={18} className="text-sky-500 mt-1" />
           <span className="text-sm leading-relaxed">{location}</span>
         </div>
+
         <div className="flex items-start gap-4">
-          <House size={24} className="text-sky-500 mt-1" />
-          <span className="text-sm leading-relaxed">{Address}</span>
+          <House size={18} className="text-sky-500 mt-1" />
+          <span className="text-sm leading-relaxed">{address}</span>
         </div>
       </div>
 
-      {/* BUTTON */}
+      {/* button (FIX: pastikan clickable) */}
       <a
         href="https://maps.app.goo.gl/PZzfSMxZN3B1u1s67"
         target="_blank"
+        rel="noopener noreferrer"
         className="
+          relative z-10
           mt-10
           inline-flex
           justify-center
@@ -153,7 +155,6 @@ function EventCard({
       >
         View Location
       </a>
-
     </motion.div>
   );
 }
