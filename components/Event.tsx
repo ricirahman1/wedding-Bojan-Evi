@@ -51,7 +51,7 @@ export default function Event() {
             date="Sunday, June 21, 2026"
             time="14.00 - 21.00"
             location="Ocean Resto & Function"
-            address="Komp. Ruko King Business Centre Blok A2 No. 15-20, Belian, Batam Kota, Batam City"
+            address="Komp. Ruko King Business Centre Blok A2 No. 15-20, Belian, Batam Kota"
           />
         </div>
       </div>
@@ -127,7 +127,7 @@ function EventCard({
         </div>
 
         <div className="flex items-start gap-4">
-          <House size={18} className="text-sky-500 mt-1" />
+          <House size={24} className="text-sky-500 mt-1" />
           <span className="text-sm leading-relaxed">{address}</span>
         </div>
       </div>
