@@ -29,30 +29,31 @@ export default function Hero({
 
   // 🎵 FADE IN MUSIC
   const playMusic = async () => {
-    if (!audioRef.current) return;
+  if (!audioRef.current) return;
 
-    const audio = audioRef.current;
-    audio.volume = 0;
+  const audio = audioRef.current;
 
-    try {
-      await audio.play();
-      setIsPlaying(true);
+  audio.load();
+  audio.muted = false;
+  audio.volume = 0;
 
-      let vol = 0;
-      const interval = setInterval(() => {
-        if (!audioRef.current) return;
+  try {
+    await audio.play();
+    setIsPlaying(true);
 
-        if (vol < 1) {
-          vol += 0.05;
-          
-        } else {
-          clearInterval(interval);
-        }
-      }, 80);
-    } catch (err) {
-      console.log("Autoplay blocked:", err);
-    }
-  };
+    let vol = 0;
+
+    const fade = setInterval(() => {
+      vol += 0.05;
+      audio.volume = Math.min(vol, 1);
+
+      if (vol >= 1) clearInterval(fade);
+    }, 80);
+
+  } catch (e) {
+    console.log("Play failed:", e);
+  }
+};
 
   return (
     <section
